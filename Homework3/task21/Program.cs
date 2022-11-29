@@ -1,22 +1,21 @@
-﻿int getNumberFromUser( string messege );
+﻿int x1 = Coordinate("x", "A");
+int y1 = Coordinate("y", "A");
+int z1 = Coordinate("z", "A");
+int x2 = Coordinate("x", "B");
+int y2 = Coordinate("y", "B");
+int z2 = Coordinate("z", "B");
+
+int Coordinate(string coordinateName, string pointName)
 {
-    int result = 0;
-    Console.WriteLine(messege);
-    result = Convert.ToInt32(Console.ReadLine());
-    return result;
+    Console.WriteLine($"Введите координаты {coordinateName} точки {pointName}: ");
+    return Convert.ToInt32(Console.ReadLine());    
 }
 
-double getDistance (double xa, double ya, double za, double xb, double yb, double zb);
+double Calculations(double x1, double x2, double y1, double y2, double z1, double z2)
 {
-    double distance = Math.Sqrt(Math.Pow((xb - xa), 2) + Math.Pow((yb - ya) , 2) + Math.Pow((zb - za), 2));
-    return distance;
+    return Math.Sqrt(Math.Pow((x2 - x1), 2) + Math.Pow((y2 - y1) , 2) + Math.Pow((z2 - z1), 2));
 }
-int xa = getNumberFromUser("Введите X1:");
-int ya = getNumberFromUser("Введите Y1:");
-int za = getNumberFromUser("Введите Z1:");
-int xb = getNumberFromUser("Введите X2:");
-int yb = getNumberFromUser("Введите Y2:");
-int zb = getNumberFromUser("Введите Z2:");
+double CutLength = Math.Round (Calculations(x1, x2, y1, y2, z1, z2), 2);
 
-double distanse = GetDistance( xa, ya, za, xb, yb, zb);
-Console.WriteLine($"Расстояние между точками = {distance} ");
+Console.WriteLine($"Длина отрезка = {CutLength}");
+
